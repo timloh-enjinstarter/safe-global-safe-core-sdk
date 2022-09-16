@@ -64,7 +64,7 @@ export interface EthAdapter {
   getContractCode(address: string, defaultBlock?: string | number): Promise<string>
   isContractDeployed(address: string, defaultBlock?: string | number): Promise<boolean>
   getTransaction(transactionHash: string): Promise<any>
-  getSignerAddress(): Promise<string>
+  getSignerAddress(): Promise<string | undefined>
   signMessage(message: string): Promise<string>
   signTypedData(
     safeTransactionEIP712Args: SafeTransactionEIP712Args,
