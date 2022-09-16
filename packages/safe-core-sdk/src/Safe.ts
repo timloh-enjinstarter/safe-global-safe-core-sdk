@@ -397,6 +397,9 @@ class Safe {
   ): Promise<SafeTransaction> {
     const owners = await this.getOwners()
     const signerAddress = await this.#ethAdapter.getSignerAddress()
+    if (!signerAddress) {
+      throw new Error('EthAdapter must be initialized with a signer to use this method')
+    }
     const addressIsOwner = owners.find(
       (owner: string) => signerAddress && sameString(owner, signerAddress)
     )
@@ -442,6 +445,9 @@ class Safe {
   ): Promise<TransactionResult> {
     const owners = await this.getOwners()
     const signerAddress = await this.#ethAdapter.getSignerAddress()
+    if (!signerAddress) {
+      throw new Error('EthAdapter must be initialized with a signer to use this method')
+    }
     const addressIsOwner = owners.find(
       (owner: string) => signerAddress && sameString(owner, signerAddress)
     )
@@ -647,6 +653,9 @@ class Safe {
     }
     const owners = await this.getOwners()
     const signerAddress = await this.#ethAdapter.getSignerAddress()
+    if (!signerAddress) {
+      throw new Error('EthAdapter must be initialized with a signer to use this method')
+    }
     if (owners.includes(signerAddress)) {
       signedSafeTransaction.addSignature(generatePreValidatedSignature(signerAddress))
     }
