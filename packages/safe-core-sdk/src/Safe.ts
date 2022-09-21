@@ -10,7 +10,7 @@ import {
   SafeVersion,
   TransactionOptions,
   TransactionResult
-} from '@gnosis.pm/safe-core-sdk-types'
+} from '@timloh-enjinstarter/safe-global-safe-core-sdk-types'
 import ContractManager from './managers/contractManager'
 import ModuleManager from './managers/moduleManager'
 import OwnerManager from './managers/ownerManager'

@@ -13,7 +13,7 @@ const outDirTests = 'typechain/tests/'
 
 // Contract list for which the Typechain files will be generated
 // Will be included in dist/ folder
-const safeContractsPath = '../../node_modules/@gnosis.pm/safe-deployments/dist/assets'
+const safeContractsPath = '../../node_modules/@timloh-enjinstarter/safe-global-safe-deployments/dist/assets'
 
 const safeContracts_V1_3_0 = [
   `${safeContractsPath}/v1.3.0/gnosis_safe.json`,
@@ -21,19 +21,10 @@ const safeContracts_V1_3_0 = [
   `${safeContractsPath}/v1.3.0/multi_send.json`,
   `${safeContractsPath}/v1.3.0/multi_send_call_only.json`
 ].join(' ')
-const safeContracts_V1_2_0 = [`${safeContractsPath}/v1.2.0/gnosis_safe.json`].join(' ')
-const safeContracts_V1_1_1 = [
-  `${safeContractsPath}/v1.1.1/gnosis_safe.json`,
-  `${safeContractsPath}/v1.1.1/proxy_factory.json`,
-  `${safeContractsPath}/v1.1.1/multi_send.json`
-].join(' ')
 
 // Won't be included in dist/ folder
-const safeContractsTestPath = '../../node_modules/@gnosis.pm/safe-contracts-v1.2.0/build/contracts'
 const openZeppelinContractsPath = '../../node_modules/openzeppelin-solidity/build/contracts'
 const testContracts = [
-  `${safeContractsTestPath}/DailyLimitModule.json`,
-  `${safeContractsTestPath}/SocialRecoveryModule.json`,
   `${openZeppelinContractsPath}/ERC20Mintable.json`
 ].join(' ')
 
@@ -73,19 +64,9 @@ const web3V1 = 'web3-v1'
 
 // Src: Web3 V1 types
 generateTypechainFiles(web3V1, `${outDirSrc}${web3V1}/v1.3.0`, safeContracts_V1_3_0)
-generateTypechainFiles(web3V1, `${outDirSrc}${web3V1}/v1.2.0`, safeContracts_V1_2_0)
-generateTypechainFiles(web3V1, `${outDirSrc}${web3V1}/v1.1.1`, safeContracts_V1_1_1)
 moveTypechainFiles(
   `${typeChainDirectorySrcPath}${web3V1}/v1.3.0`,
   `${typeChainDirectoryBuildPath}${web3V1}/v1.3.0`
-)
-moveTypechainFiles(
-  `${typeChainDirectorySrcPath}${web3V1}/v1.2.0`,
-  `${typeChainDirectoryBuildPath}${web3V1}/v1.2.0`
-)
-moveTypechainFiles(
-  `${typeChainDirectorySrcPath}${web3V1}/v1.1.1`,
-  `${typeChainDirectoryBuildPath}${web3V1}/v1.1.1`
 )
 
 // Tests: Web3 V1 types
